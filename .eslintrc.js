@@ -55,7 +55,7 @@ module.exports = {
     //允许使用 require 语句
     '@typescript-eslint/no-var-requires': 'off',
     //不允许使用 TypeScript 2+ 提供的非空断言操作!叹号符 例：function x(a: string | null) {const b = a!;}
-    '@typescript-eslint/no-non-null-assertion': 'error',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     //允许使用过时方式声明自定义 TypeScript 模块和命名空间, 但要求进行 declare 显式声明
     '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
     //#########################################################################################################

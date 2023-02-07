@@ -1,3 +1,84 @@
 // 全局样式变量
 
 $default-color: #2563eb;
+
+// 主题名称
+$theme-name: 'element';
+// 主题背景颜色
+$theme-bg-color: #314255;
+// 主题背景图片遮罩
+$theme-bg-mask: rgba(#000, 0);
+
+// 消息提示
+$theme-message-info-background-color: #ffffff;
+$theme-message-info-text-color: #202d3d;
+$theme-message-info-border-color: #202d3d;
+
+// container组件
+$theme-container-background-color: rgba(#fff, 1);
+$theme-container-header-footer-background-color: #fff;
+$theme-container-border-inner: 1px solid #cfd7e5;
+$theme-container-border-outer: 1px solid #011527;
+
+$theme-multiple-page-control-color: #bfcbd9;
+$theme-multiple-page-control-color-active: #46a0fc;
+$theme-multiple-page-control-nav-prev-color: #bfcbd9;
+$theme-multiple-page-control-nav-next-color: #bfcbd9;
+$theme-multiple-page-control-border-color: #011527;
+$theme-multiple-page-control-border-color-active: #ffffff;
+$theme-multiple-page-control-background-color: #212d3d;
+$theme-multiple-page-control-background-color-active: #ffffff;
+
+// 顶栏和侧边栏中展开的菜单 hover 状态下
+$theme-menu-item-color-hover: #bfcbd9;
+$theme-menu-item-background-color-hover: #011527;
+
+// 顶栏上的文字颜色
+$theme-header-item-color: #ffffff;
+$theme-header-item-background-color: transparent;
+// 顶栏上的项目在 hover 时
+$theme-header-item-color-hover: #ffffff;
+$theme-header-item-background-color-hover: #2e5fff;
+// 顶栏上的项目在 focus 时
+$theme-header-item-color-focus: #ffffff;
+$theme-header-item-background-color-focus: #2e5fff;
+// 顶栏上的项目在 active 时
+$theme-header-item-color-active: #ffffff;
+$theme-header-item-background-color-active: #2e5fff;
+
+// 侧边栏上的文字颜色
+$theme-aside-item-color: #ffffff;
+$theme-aside-item-background-color: transparent;
+// 侧边栏上的项目在 hover 时
+$theme-aside-item-color-hover: #ffffff;
+$theme-aside-item-background-color-hover: #082141;
+// 侧边栏上的项目在 focus 时
+$theme-aside-item-color-focus: #ffffff;
+$theme-aside-item-background-color-focus: #082141;
+// 侧边栏上的项目在 active 时
+$theme-aside-item-color-active: #ffffff;
+$theme-aside-item-background-color-active: #082141;
+
+// 侧边栏菜单为空的时候显示的元素
+$theme-aside-menu-empty-icon-color: #bfcbd9;
+$theme-aside-menu-empty-text-color: #bfcbd9;
+$theme-aside-menu-empty-background-color: #202d3d;
+$theme-aside-menu-empty-icon-color-hover: #46a0fc;
+$theme-aside-menu-empty-text-color-hover: #46a0fc;
+$theme-aside-menu-empty-background-color-hover: #202d3d;
+
+// UI 重新设计颜色
+//顶部菜单的背景颜色---新增
+$theme-header-background-color: none;
+
+//logo背景图和颜色---新增
+$theme-header-logo-background-color: none;
+
+//顶栏的背景图片---新增
+$theme-header-background-image: url('/image/theme/element/bgTop.png');
+
+//侧边栏的背景图片---新增
+$theme-container-aside-image: url('/image/theme/element/bgLeft.png');
+
+//侧边栏子菜单小圆点颜色---新增
+$menu-dot-color: #ffffff;
