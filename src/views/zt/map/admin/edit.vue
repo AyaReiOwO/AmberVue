@@ -278,7 +278,7 @@ nextTick(async () => {
   position: absolute;
   width: 100%;
   height: 100%;
-  // background-image: url('@/assets/images/zt/admin-index.png');
+  // background-image: url('@/assets/images/zt/map/admin-index.png');
   // background-size: 100% 100%;
 }
 .header {
@@ -286,7 +286,7 @@ nextTick(async () => {
   height: 68px;
   // background: #ffffff;
   // box-shadow: 0px 1px 0px 0px #e5e5e5;
-  background-image: url('@/assets/images/zt/admin/header-bg.png');
+  background-image: url('@/assets/images/zt/map/admin/header-bg.png');
   background-size: 100% 100%;
 }
 

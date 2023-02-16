@@ -105,7 +105,7 @@ const onSubmit = () => {
   position: absolute;
   width: 100%;
   height: 100%;
-  // background-image: url('@/assets/images/zt/admin-index.png');
+  // background-image: url('@/assets/images/zt/map/admin-index.png');
   // background-size: 100% 100%;
 }
 .header {

@@ -429,7 +429,7 @@ const initTree = () => {
                   itemHeight * 7
                   // itemHeight*7,itemHeight*6,itemHeight*5,itemHeight*4,itemHeight*3,itemHeight*2,36,0,-36 ,itemHeight*(-2) ,itemHeight*(-3) ,itemHeight*(-4) ,itemHeight*(-5) ,itemHeight*(-6) ,itemHeight*(-7) ,
                 ];
-                const rMin = 760,
+                const rMin = 900,
                   rMax = rMin;
                 const rArr = [
                   rMin,
@@ -472,7 +472,7 @@ const initTree = () => {
                   attrs: {
                     width: 24,
                     height: 24,
-                    x: x > 0 ? x - 24 : x,
+                    x: x > 0 ? x - 24 - 200 : x + 200,
                     y: y + 21 - boxHeight / 2,
                     img: 'data:image/png;base64,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',
                     cursor: 'pointer'
@@ -485,7 +485,7 @@ const initTree = () => {
                     text: `${value.name}`,
                     fill: '#ffffff',
                     height: itemHeight,
-                    x: x,
+                    x: x > 0 ? x - 200 : x + 200,
                     y: y + 20,
                     textAlign: x > 0 ? 'start' : 'end',
                     textBaseline: 'middle',
@@ -1328,11 +1328,15 @@ nextTick(async () => {
 </template>
 
 <style lang="scss">
+body {
+  overflow: hidden;
+}
+
 #quanguo {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/zt/web/quanguo/quanguo.png');
+  background-image: url('@/assets/images/zt/map/web/quanguo/quanguo.png');
   background-size: 100% 100%;
 
   .center-circle-bg {
@@ -1343,7 +1347,7 @@ nextTick(async () => {
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 1000px;
-    background-image: url('@/assets/images/zt/web/center-circle-bg.png');
+    background-image: url('@/assets/images/zt/map/web/center-circle-bg.png');
     background-size: 100% 100%;
     z-index: 1;
   }
@@ -1381,7 +1385,7 @@ nextTick(async () => {
     bottom: 0px;
     transform: translate(-50%, -50%);
 
-    background-image: url('@/assets/images/zt/web/footer-bg.png');
+    background-image: url('@/assets/images/zt/map/web/footer-bg.png');
     background-size: 100% 100%;
   }
 
@@ -1392,7 +1396,7 @@ nextTick(async () => {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    // background-image: url('@/assets/images/zt/bg.png');
+    // background-image: url('@/assets/images/zt/map/bg.png');
     // background-size: 100% 100%;
   }
 
@@ -1413,7 +1417,7 @@ nextTick(async () => {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/zt/web/province/province.png');
+  background-image: url('@/assets/images/zt/map/web/province/province.png');
   background-size: 100% 100%;
 
   .center-circle-bg {
@@ -1423,7 +1427,7 @@ nextTick(async () => {
     transform: translate(-50%, -50%);
     width: 1000px;
     height: 1000px;
-    background-image: url('@/assets/images/zt/web/center-circle-bg.png');
+    background-image: url('@/assets/images/zt/map/web/center-circle-bg.png');
     background-size: 100% 100%;
     z-index: 1;
   }
@@ -1454,7 +1458,7 @@ nextTick(async () => {
     bottom: 0px;
     transform: translate(-50%, -50%);
 
-    background-image: url('@/assets/images/zt/web/footer-bg.png');
+    background-image: url('@/assets/images/zt/map/web/footer-bg.png');
     background-size: 100% 100%;
   }
 
@@ -1466,7 +1470,7 @@ nextTick(async () => {
 
     width: 116px;
     height: 36px;
-    background-image: url('@/assets/images/zt/web/back-btn.png');
+    background-image: url('@/assets/images/zt/map/web/back-btn.png');
     background-size: 100% 100%;
   }
 
@@ -1477,7 +1481,7 @@ nextTick(async () => {
     left: 42%;
     top: 50%;
     transform: translate(-50%, -50%);
-    // background-image: url('@/assets/images/zt/bg.png');
+    // background-image: url('@/assets/images/zt/map/bg.png');
     // background-size: 100% 100%;
   }
 
@@ -1499,7 +1503,7 @@ nextTick(async () => {
         position: absolute;
         width: 229px;
         height: 67px;
-        background-image: url('@/assets/images/zt/web/intro/case-title-bg.png');
+        background-image: url('@/assets/images/zt/map/web/intro/case-title-bg.png');
         background-size: 100% 100%;
       }
       .zhongwen {
@@ -1532,14 +1536,14 @@ nextTick(async () => {
     .case-divider {
       width: 248px;
       height: 7px;
-      background-image: url('@/assets/images/zt/web/province/case-divider.png');
+      background-image: url('@/assets/images/zt/map/web/province/case-divider.png');
       background-size: 100% 100%;
     }
 
     .case-item {
       width: 262px;
       height: 60px;
-      background-image: url('@/assets/images/zt/web/province/case-item-bg.png');
+      background-image: url('@/assets/images/zt/map/web/province/case-item-bg.png');
       background-size: 100% 100%;
       div {
         width: 220px;
@@ -1563,13 +1567,13 @@ nextTick(async () => {
       .pre {
         width: 34px;
         height: 34px;
-        background-image: url('@/assets/images/zt/web/province/page-pre.png');
+        background-image: url('@/assets/images/zt/map/web/province/page-pre.png');
         background-size: 100% 100%;
       }
       .next {
         width: 34px;
         height: 34px;
-        background-image: url('@/assets/images/zt/web/province/page-next.png');
+        background-image: url('@/assets/images/zt/map/web/province/page-next.png');
         background-size: 100% 100%;
       }
     }
@@ -1580,14 +1584,14 @@ nextTick(async () => {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url('@/assets/images/zt/web/intro/intro.png');
+  background-image: url('@/assets/images/zt/map/web/intro/intro.png');
   background-size: 100% 100%;
   color: white;
 
   .title-bg {
     width: 1840px;
     height: 62px;
-    background-image: url('@/assets/images/zt/web/intro/title.png');
+    background-image: url('@/assets/images/zt/map/web/intro/title.png');
     background-size: 100% 100%;
   }
 
@@ -1622,7 +1626,7 @@ nextTick(async () => {
   .content-box {
     width: 1840px;
     height: 820px;
-    background-image: url('@/assets/images/zt/web/intro/content-bg.png');
+    background-image: url('@/assets/images/zt/map/web/intro/content-bg.png');
     background-size: 100% 100%;
     .center-circle-bg {
       margin-top: 5px;
@@ -1632,7 +1636,7 @@ nextTick(async () => {
       transform: translate(-50%, -50%);
       width: 880px;
       height: 880px;
-      background-image: url('@/assets/images/zt/web/center-circle-bg.png');
+      background-image: url('@/assets/images/zt/map/web/center-circle-bg.png');
       background-size: 100% 100%;
       z-index: 1;
     }
@@ -1641,7 +1645,7 @@ nextTick(async () => {
   .detailed-intro {
     width: 456px;
     height: 90px;
-    background-image: url('@/assets/images/zt/web/intro/detailed-intro.png');
+    background-image: url('@/assets/images/zt/map/web/intro/detailed-intro.png');
     background-size: 100% 100%;
   }
 
@@ -1649,7 +1653,7 @@ nextTick(async () => {
     .title-bg {
       width: 620px;
       height: 55px;
-      background-image: url('@/assets/images/zt/web/intro/product-intro.png');
+      background-image: url('@/assets/images/zt/map/web/intro/product-intro.png');
       background-size: 100% 100%;
     }
     .content {
@@ -1667,7 +1671,7 @@ nextTick(async () => {
     .title-bg {
       width: 620px;
       height: 55px;
-      background-image: url('@/assets/images/zt/web/intro/product-advantage.png');
+      background-image: url('@/assets/images/zt/map/web/intro/product-advantage.png');
       background-size: 100% 100%;
     }
     .advantages-item {
@@ -1681,7 +1685,7 @@ nextTick(async () => {
       div {
         width: 26px;
         height: 26px;
-        background-image: url('@/assets/images/zt/web/intro/advantages-item-bg.png');
+        background-image: url('@/assets/images/zt/map/web/intro/advantages-item-bg.png');
         background-size: 100% 100%;
       }
     }
@@ -1690,7 +1694,7 @@ nextTick(async () => {
   .product-img {
     width: 47px;
     height: 263px;
-    background-image: url('@/assets/images/zt/web/intro/product-img.png');
+    background-image: url('@/assets/images/zt/map/web/intro/product-img.png');
     background-size: 100% 100%;
   }
 
@@ -1709,7 +1713,7 @@ nextTick(async () => {
     bottom: 0px;
     transform: translate(-50%, -50%);
 
-    background-image: url('@/assets/images/zt/web/footer-bg.png');
+    background-image: url('@/assets/images/zt/map/web/footer-bg.png');
     background-size: 100% 100%;
   }
 
@@ -1721,7 +1725,7 @@ nextTick(async () => {
 
     width: 116px;
     height: 36px;
-    background-image: url('@/assets/images/zt/web/back-btn.png');
+    background-image: url('@/assets/images/zt/map/web/back-btn.png');
     background-size: 100% 100%;
   }
 }
