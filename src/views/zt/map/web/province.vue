@@ -6,9 +6,6 @@ import * as echarts from 'echarts';
 
 const apiHeader = 'http://113.57.92.254:8002/api/v1';
 const apiHost = 'http://113.57.92.254:8002';
-import qs from 'qs';
-import { useRouter } from "vue-router";
-const router = useRouter();
 
 const redFlagImg =
   'data:image/png;base64,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';
@@ -282,6 +279,45 @@ const provinceList = [
 
 const cityList = [];
 
+// const provinceToMap = {
+//   China: '/asset/get/s/data-1527045631990-r1dZ0IM1X.json',
+//   上海市: '/asset/get/s/data-1482909900836-H1BC_1WHg.json',
+//   河北省: '/asset/get/s/data-1482909799572-Hkgu_yWSg.json',
+//   山西省: '/asset/get/s/data-1482909909703-SyCA_JbSg.json',
+//   内蒙古自治区: '/asset/get/s/data-1482909841923-rkqqdyZSe.json',
+//   辽宁省: '/asset/get/s/data-1482909836074-rJV9O1-Hg.json',
+//   吉林省: '/asset/get/s/data-1482909832739-rJ-cdy-Hx.json',
+//   黑龙江省: '/asset/get/s/data-1482909803892-Hy4__J-Sx.json',
+//   江苏省: '/asset/get/s/data-1482909823260-HkDtOJZBx.json',
+//   浙江省: '/asset/get/s/data-1482909960637-rkZMYkZBx.json',
+//   安徽省: '/asset/get/s/data-1482909768458-HJlU_yWBe.json',
+//   福建省: '/asset/get/s/data-1478782908884-B1H6yezWe.json',
+//   江西省: '/asset/get/s/data-1482909827542-r12YOJWHe.json',
+//   山东省: '/asset/get/s/data-1482909892121-BJ3auk-Se.json',
+//   河南省: '/asset/get/s/data-1482909807135-SJPudkWre.json',
+//   湖北省: '/asset/get/s/data-1482909813213-Hy6u_kbrl.json',
+//   湖南省: '/asset/get/s/data-1482909818685-H17FOkZSl.json',
+//   广东省: '/asset/get/s/data-1482909784051-BJgwuy-Sl.json',
+//   广西壮族自治区: '/asset/get/s/data-1482909787648-SyEPuJbSg.json',
+//   海南省: '/asset/get/s/data-1482909796480-H12P_J-Bg.json',
+//   四川省: '/asset/get/s/data-1482909931094-H17eKk-rg.json',
+//   贵州省: '/asset/get/s/data-1482909791334-Bkwvd1bBe.json',
+//   云南省: '/asset/get/s/data-1482909957601-HkA-FyWSx.json',
+//   西藏: '/asset/get/s/data-1482927407942-SkOV6Qbrl.json',
+//   陕西省: '/asset/get/s/data-1482909918961-BJw1FyZHg.json',
+//   甘肃省: '/asset/get/s/data-1482909780863-r1aIdyWHl.json',
+//   青海省: '/asset/get/s/data-1482909853618-B1IiOyZSl.json',
+//   宁夏回族自治区: '/asset/get/s/data-1482909848690-HJWiuy-Bg.json',
+//   新疆: '/asset/get/s/data-1482909952731-B1YZKkbBx.json',
+//   北京市: '/asset/get/s/data-1482818963027-Hko9SKJrg.json',
+//   天津市: '/asset/get/s/data-1482909944620-r1-WKyWHg.json',
+//   重庆市: '/asset/get/s/data-1482909775470-HJDIdk-Se.json',
+//   香港: '/asset/get/s/data-1461584707906-r1hSmtsx.json',
+//   澳门: '/asset/get/s/data-1482909771696-ByVIdJWBx.json'
+// };
+
+
+
 const provinceToMap = {
   China: 'china.json',
   上海市: 'shanghai.json',
@@ -322,16 +358,20 @@ const provinceToMap = {
 const loadProvinceMapJson = async (mapName, url) => {
   //加载时的文字提示
   if (!echarts.getMap(mapName)) {
+    // await api.axios.get(`http://api.ppmark.cn/chart-assets/${url}`).then(geoJson => {
+    //   echarts.registerMap(mapName, geoJson);
+    // });
     await api.axios.get(`http://192.168.4.18:5173/src/assets/mapJson/${url}`).then(geoJson => {
       echarts.registerMap(mapName, geoJson);
     });
   }
 };
 
-// provinceList.map(async item => {
-//   console.log(item.name, provinceToMap[item.name]);
-//   await loadProvinceMapJson(item.name, provinceToMap[item.name]);
-// });
+
+provinceList.map(async item => {
+  console.log(item.name, provinceToMap[item.name]);
+  await loadProvinceMapJson(item.name, provinceToMap[item.name]);
+});
 
 let chinaChart = null;
 
@@ -397,7 +437,7 @@ const initTree = () => {
               pointCount++;
 
               {
-                const itemHeight = 36;
+                const itemHeight = 40;
                 const yArr = [
                   itemHeight * -8,
                   itemHeight * -7,
@@ -432,7 +472,7 @@ const initTree = () => {
                   itemHeight * 7
                   // itemHeight*7,itemHeight*6,itemHeight*5,itemHeight*4,itemHeight*3,itemHeight*2,36,0,-36 ,itemHeight*(-2) ,itemHeight*(-3) ,itemHeight*(-4) ,itemHeight*(-5) ,itemHeight*(-6) ,itemHeight*(-7) ,
                 ];
-                const rMin = 920,
+                const rMin = 900,
                   rMax = rMin;
                 const rArr = [
                   rMin,
@@ -492,7 +532,7 @@ const initTree = () => {
                     y: y + 20,
                     textAlign: x > 0 ? 'start' : 'end',
                     textBaseline: 'middle',
-                    fontSize: 11,
+                    fontSize: 12,
                     fontWeight: 500
                   },
                   name: ''
@@ -883,7 +923,7 @@ const initProvinceChart = async () => {
                   style: {
                     text: item.name,
                     color: '#fff',
-                    fontSize: 12,
+                    fontSize: 14,
                     fontWeight: 'bold',
                     align: 'left'
                   }
@@ -953,6 +993,9 @@ const loadProvinceData = async () => {
   pageInfo.pages = result.data.pages;
 };
 
+const provinceName = ref('');
+const provincePy = ref('');
+
 const loadCityList = async () => {
   const result = await api.axios.get(`/api/v1/screen/regions/city/list?provinceId=${activeProvinceInfo.id}`);
   cityList.length = 0;
@@ -976,8 +1019,28 @@ const initProvince = async () => {
 
   const mapName = activeProvinceInfo.name;
   await Promise.all([loadProvinceMapJson(mapName, provinceToMap[mapName]), loadFlagData(), loadCityList(), loadProvinceData()]);
-  initProvinceChart();
+  await initProvinceChart();
 };
+
+
+
+
+setInterval( async ()=>{
+  const result = await api.axios.get(`http://113.57.92.254:9528/active-province`)
+  if(result.code === 0){
+    if(activeProvinceInfo.id === result.data.id){
+      return;
+    }
+    activeProvinceInfo = result.data;
+    provinceName.value = activeProvinceInfo.name
+    provincePy.value = activeProvinceInfo.pinYin
+    console.log(activeProvinceInfo.id , activeProvinceInfo.name)
+    activePage.value = 1;
+    initProvince();
+  }
+
+},500)
+
 
 const initChinaChart = async () => {
   /*
@@ -1124,8 +1187,8 @@ const initChinaChart = async () => {
                   lineWidth: 0
                 },
                 shape: {
-                  x: api.coord([item.lng, item.lat])[0] - 57,
-                  y: api.coord([item.lng, item.lat])[1] - 61,
+                  x: api.coord([item.lng, item.lat])[0] - 54,
+                  y: api.coord([item.lng, item.lat])[1] - 88,
                   width: 80,
                   height: 80,
                   r: 5
@@ -1134,7 +1197,7 @@ const initChinaChart = async () => {
                   style: {
                     text: item.name,
                     color: '#fff',
-                    fontSize: 10,
+                    fontSize: 14,
                     fontWeight: 'bold',
                     align: 'left'
                   }
@@ -1149,9 +1212,9 @@ const initChinaChart = async () => {
                 style: {
                   image: redFlagImg,
                   x: api.coord([item.lng, item.lat])[0] - 24,
-                  y: api.coord([item.lng, item.lat])[1] - 16,
-                  width: 30,
-                  height: 30
+                  y: api.coord([item.lng, item.lat])[1] - 40,
+                  width: 48,
+                  height: 48
                 }
               },
 
@@ -1161,9 +1224,9 @@ const initChinaChart = async () => {
                 style: {
                   image: redFlagBg,
                   x: api.coord([item.lng, item.lat])[0] - 20,
-                  y: api.coord([item.lng, item.lat])[1] - 30,
-                  width: 32,
-                  height: 16
+                  y: api.coord([item.lng, item.lat])[1] - 60,
+                  width: 54,
+                  height: 24
                 }
               }
             ]
@@ -1199,10 +1262,7 @@ const initChinaChart = async () => {
     });
     if (chooseInfo) {
       activeProvinceInfo = chooseInfo;
-      // router.push({path:'/zt/map/web/province',query:chooseInfo})
-
-      api.axios.get(`http://113.57.92.254:9528/update-province?${qs.stringify(chooseInfo)}`)
-      // activePage.value = 1;
+      activePage.value = 1;
     }
   });
 };
@@ -1260,8 +1320,9 @@ nextTick(async () => {
     <div id="case-list" class="z-10">
       <div class="case-title mb-8">
         <div class="case-title-bg"></div>
-        <div class="zhongwen">{{ activeProvinceInfo.name }}</div>
-        <div class="pinyin">{{ activeProvinceInfo.pinYin }}</div>
+        <div class="zhongwen">
+          {{ provinceName }}</div>
+        <div class="pinyin">{{ provincePy }}</div>
       </div>
       <div class="case-divider"></div>
       <div
@@ -1736,6 +1797,8 @@ body {
   }
 }
 </style>
+
+
 
 <route lang="yml">
 meta:
